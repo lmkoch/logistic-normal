@@ -20,8 +20,8 @@ setup(
     packages=['logisticnormal'],
 
     # Details
-    url="http://pypi.python.org/pypi/MyApplication_v010/",
-    download_url="http://pypi.python.org/pypi/MyApplication_v010/",
+    url='http://github.com/lmkoch/logistic-normal',
+    download_url='https://github.com/lmkoch/logistic-normal/zipball/master',
 
     #
     license='MIT',
