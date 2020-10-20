@@ -55,23 +55,6 @@ def pdf(mu, covar):
         raise Exception('Parameter dimension mismatch. mu.shape is {}, covar.shape is {}'.format(mu.shape, covar.shape))
 
     def logisticnormal(x):
-        """
-        :param x:   array, shape (N,D)
-                    N: number of samples,
-                    D: number of categories (dimensions)
-        :return: f(x)
-        """
-
-        if x.shape[1] != D:
-            raise Exception('Data dimension mismatch. Number of rows should be {}, but is {}'.format(D, x.shape[0]))
-
-        y = np.log(x[:,:-1] / (x[:,-1][:, None]+0.0000001))
-
-        # apply multivariate normal pdf
-        return multivariate_normal.pdf(y, mean=mu, cov=covar, allow_singular=True)
-
-
-    def logisticnormal_corrected(x):
         """ Corrected version - I suspect the version above is wrong
 
         :param x:   array, shape (N,D)
@@ -88,7 +71,5 @@ def pdf(mu, covar):
         # apply multivariate normal pdf
         return multivariate_normal.pdf(y, mean=mu, cov=covar, allow_singular=True) / np.prod(x, axis=1)
 
-
-    return logisticnormal_corrected
     return logisticnormal
 
